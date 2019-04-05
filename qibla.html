@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        /* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  height: 100%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+        </style>
+    </head>
+    <body>
+        <script>
+        // Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see the error "The Geolocation service
+// failed.", it means you probably did not give permission for the browser to
+// locate you.
+var map, infoWindow;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 20,
+    //gestureHandling: 'cooperative'
+  });
+  
+  infoWindow = new google.maps.InfoWindow;
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Your Location.');
+      infoWindow.open(map);
+      map.setCenter(pos);
+      var flightPlanCoordinates = [
+          {lat: 21.4224779, lng: 39.8251832},
+          {lat: position.coords.latitude, lng: position.coords.longitude}
+          
+        ];
+        var flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+        flightPath.setMap(map);
+        
+        var iconBase =
+            'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
+        var icons = {
+          kaaba: {
+            icon:  'https://user-images.githubusercontent.com/47439061/55462737-042a3180-562a-11e9-8434-36f4bf3e609c.png'
+          },
+          library: {
+            icon: iconBase + 'library_maps.png'
+          },
+          info: {
+            icon: iconBase + 'info-i_maps.png'
+          }
+        };
+        
+        var features = [
+        {
+        position: new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
+            type: 'info'
+        }, {
+            position: new google.maps.LatLng(21.42252, 39.82618),
+            type: 'kaaba'
+          }
+        ];
+        
+        // Create markers.
+        for (var i = 0; i < features.length; i++) {
+          var marker = new google.maps.Marker({
+            position: features[i].position,
+            icon: icons[features[i].type].icon,
+            map: map
+          });
+        };
+        
+        
+      
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+  // Create markers.
+  for (var i = 0; i < flightPlanCoordinates.length; i++) {
+          var marker = new google.maps.Marker({
+            position: flightPlanCoordinates[i].position,
+            icon: icons[flightPlanCoordinates[i].type].icon,
+            map: map
+          });
+        };
+}
+</script>
+<div id="map"></div>
+<!-- Replace the value of the key parameter with your own API key. -->
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAxlX9aIjJ1wS2mOwXWytXbi1KgYYqaUWo&callback=initMap">
+</script>
+    </body>
+</html>
