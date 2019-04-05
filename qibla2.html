@@ -9,6 +9,7 @@
       #map {
         height: 100%;
       }
+
       html, body {
         height: 100%;
         margin: 0;
@@ -19,15 +20,19 @@
         font-size: 15px;
         font-weight: 300;
       }
+
       #infowindow-content .title {
         font-weight: bold;
       }
+
       #infowindow-content {
         display: none;
       }
+
       #map #infowindow-content {
         display: inline;
       }
+
       .pac-card {
         margin: 10px 10px 0 0;
         border-radius: 2px 0 0 2px;
@@ -38,19 +43,23 @@
         background-color: #fff;
         font-family: Roboto;
       }
+
       #pac-container {
         padding-bottom: 12px;
         margin-right: 12px;
       }
+
       .pac-controls {
         display: inline-block;
         padding: 5px 11px;
       }
+
       .pac-controls label {
         font-family: Roboto;
         font-size: 13px;
         font-weight: 300;
       }
+
       #pac-input {
         background-color: #fff;
         font-family: Roboto;
@@ -61,9 +70,11 @@
         text-overflow: ellipsis;
         width: 400px;
       }
+
       #pac-input:focus {
         border-color: #4d90fe;
       }
+
       #title {
         color: #fff;
         background-color: #4d90fe;
@@ -85,6 +96,7 @@
       
       var marker1, marker2;
       var poly,geodesicPoly;
+
       function initMap() {
           
         // Create map with default attributes
@@ -92,30 +104,38 @@
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 20,
           center: {lat: 34, lng: -40.605},
-          mapTypeId: 'roadmap',
+          scaleControl: true,
           enableHighAccuracy: true
         });
+
+
                // Create the search box and link it to the UI element.
                var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
           searchBox.setBounds(map.getBounds());
         });
+
         var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
+
+
           if (places.length == 0) {
             return;
           }
+
           // Clear out the old markers.
           markers.forEach(function(marker) {
             marker.setMap(null);
           });
           markers = [];
+
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
@@ -130,6 +150,7 @@
               anchor: new google.maps.Point(17, 34),
               scaledSize: new google.maps.Size(25, 25)
             };
+
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
@@ -137,6 +158,7 @@
               title: place.name,
               position: place.geometry.location
             }));
+
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -146,6 +168,8 @@
           });
           map.fitBounds(bounds);
         });
+
+
         // Try HTML5 geolocation
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -177,8 +201,10 @@
               
             var bounds = new google.maps.LatLngBounds(marker1.getPosition(), marker2.getPosition());
             map.fitBounds(bounds);
+
             google.maps.event.addListener(marker1, 'position_changed', update);
             google.maps.event.addListener(marker2, 'position_changed', update);
+
          // Create polyline
          poly = new google.maps.Polyline({
               strokeColor: '#FF0000',
@@ -187,6 +213,7 @@
               geodesic: true,
               map: map
             });
+
             geodesicPoly = new google.maps.Polyline({
           strokeColor: '#CC0099',
           strokeOpacity: 1.0,
@@ -204,6 +231,7 @@
         } else {
           alert("Browser doesn't support Geolocation");         
         }
+
         function toggleBounce() {
         if (marker1.getAnimation() !== null) {
           marker1.setAnimation(null);
@@ -212,6 +240,7 @@
         }
       }
       }
+
       function update(map) {
           
         // Set path for polyline
