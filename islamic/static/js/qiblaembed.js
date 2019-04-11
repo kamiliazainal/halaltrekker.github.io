@@ -22,7 +22,7 @@ var iconKaaba = {
 function initialize(){
     // maps Options
     var mapOptions = {
-        zoom: 10,
+        zoom: 20,
         center: new google.maps.LatLng(-7.7409531,109.5590196), // ! using Cookies?
         mapTypeId:google.maps.MapTypeId.ROADMAP
     };
@@ -100,7 +100,7 @@ function initialize(){
         for (var i=0, place; place=places[i]; i++){
             locMarker.setPosition(place.geometry.location); // get location of place
             qiblaMap.panTo(locMarker.getPosition()); // move to the center
-            qiblaMap.setZoom(15);} // change zoom 
+            qiblaMap.setZoom(20);} // change zoom 
     });
 
     // Bias the SearchBox results towards places that are within the bounds of the
