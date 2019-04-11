@@ -16,7 +16,7 @@
     <!-- <script src="http://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=false&libraries=places,geometry"></script>  -->
   </head>
   <body>
-   <!-- <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navMain">
@@ -25,21 +25,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <span class="navbar-brand active home-nav">iSlamic</span>
+          <a class="navbar-brand active home-nav" href="#">iSlamic</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navMain">
           <ul class="nav navbar-nav navbar-right">
-            <li class="qibla">Qibla Finder</li>
-             <li class="praytime"><a href="/praytimes">Pray Times</a></li>
+            <li class="qibla"><a href="/islamic">Qibla Finder</a></li>
+            <!-- <li class="praytime"><a href="/praytimes">Pray Times</a></li> -->
           </ul>
         </div>
       </div>
-    </nav>  -->
-    <!-- navbar -->
+    </nav> <!-- navbar -->
 
     
-   <div class="container">
+    <div class="container">
       <div class="row topContent">
         <div class="col-md-2">
           <div class="row">
@@ -51,18 +50,21 @@
             <div class="panel-heading" style="text-align: center">Latitude</div>
             <div class="panel-body" style="text-align: center" id="lat"></div>
           </div>
+
           <div class="panel panel-info">
             <div class="panel-heading" style="text-align: center">Longitude</div>
             <div class="panel-body" style="text-align: center" id="lng"></div>
           </div>
+
           <div class="panel panel-info">
             <div class="panel-heading" style="text-align: center">Distance</div>
             <div class="panel-body" style="text-align: center" id="distance"></div>
-          </div>
+        </div>
+
           <div class="panel panel-info">
             <div class="panel-heading" style="text-align: center">Qibla Direction</div>
             <div class="panel-body" style="text-align: center" id="direction"></div>
-          </div>
+        </div>
 
               </div>
             </div>
@@ -94,24 +96,28 @@
 
 
 
+
+
       <div class="row top5">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-danger">
             <div class="panel-heading" style="text-align: left">Notes:</div>
             <div class="panel-body" style="text-align: left" id="lat">
+              <hr>
               <h4>Qibla finder</h4>
               <ul>
                 <li>The simplest way to find Qibla direction is using the map above. You can use Search Box inside the map for fast searching.</li>
-                <li>You can click-and-drag the Human icon to change the location. You can also use right click in the map. Left click to the icon will move it to the center of the map.</li>
+                <li>You can click-and-drag the Mas Jo icon to change the location. You can also use right click in the map. Left click to the icon will move it to the center of the map.</li>
                 <li>Zoom in can be used to easily find the correct direction. You can use the road or building as reference to find the correct qibla direction (without good compass or accurate GPS).</li>
                 <li>Sometimes, it is possible to use the Sun to find the qibla direction. The "Sun for Qibla finder" panel gives the time(s) when you can find the qibla direction using the Sun easily. You can use a standing stick (vertical to the ground) and look at its shadow due to the Sun light. 'Sun direction' means the time when the Sun azimuth is exactly at the Qibla direction. 'Shadow direction' means that the qibla direction is at the opposite of the Sun azimuth/direction. You can also use the time when the Sun azimuth is exactly perpendicular with the Qibla direction (clockwise/counter-clockwise).</li>
-                
+                <li>Terms and Policies: <br>- by using this application you are agree that the Earth is NOT Flat ;)</li>
               </ul>
               <hr>
-                </div>
+              </div>
           </div>
         </div>
       </div>
+
 
     </div> <!-- main container -->
 
@@ -127,6 +133,7 @@
     <script type="text/javascript" src="static/js/QiblaFinder.js"></script>
     <script type="text/javascript" src="static/js/suncalc.js"></script>
     <!-- <script type="text/javascript" src="static/js/view.js"></script> -->
+
 
   </body>
 </html>
