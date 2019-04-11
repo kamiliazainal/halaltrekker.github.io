@@ -106,7 +106,6 @@ function initialize(){
             locMarker.setPosition(place.geometry.location); // get location of place
             qiblaMap.panTo(locMarker.getPosition()); // move to the center
             qiblaMap.setZoom(15);} // change zoom 
-        update();
     });
 
     // Bias the SearchBox results towards places that are within the bounds of the
@@ -121,7 +120,7 @@ function initialize(){
     var fsControl = new fullScreenControl(fsControldiv, qiblaMap); 
     qiblaMap.controls[google.maps.ControlPosition.TOP_LEFT].push(fsControldiv);
 
-    
+    update();
 }
 
 function update(){
