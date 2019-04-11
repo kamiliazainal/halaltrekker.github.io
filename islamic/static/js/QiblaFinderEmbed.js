@@ -144,6 +144,7 @@ function initialize(){
             locMarker.setPosition(place.geometry.location); // get location of place
             qiblaMap.panTo(locMarker.getPosition()); // move to the center
             qiblaMap.setZoom(15);} // change zoom 
+      update();
     });
 
 
@@ -157,7 +158,7 @@ function initialize(){
     var legend = document.getElementById('legend');
     qiblaMap.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(legend);
 
-    update();
+    
 }
 
 // update function for position_changed event
