@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="keywords" content="Qibla Finder, Islamic">
     <meta name="description" content="Find qibla direction">
-    <meta name="author" content="Kamilia Zainal">
+    <meta name="author" content="Ridlo W. Wibowo">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Islamic</title>
 
@@ -38,33 +38,26 @@
     </nav> <!-- navbar -->
 
     
-    <div class="container">
-      <div class="row topContent">
-        <div class="col-md-2">
-          <div class="row">
-            <div class="panel panel-success">
-              <div class="panel-heading" style="text-align: center">Prayers <div id="prayerdate"></div>
+    <div style="display:none" class="container">
+      <div style="display:none" class="row topContent">
+        <div style="display:none" class="col-md-2">
+          <div style="display:none" class="row">
+            <div style="display:none" class="panel panel-success">
+              <div style="display:none" class="panel-heading" style="text-align: center">Prayers <div id="prayerdate"></div>
+                <script>
+                    var d = new Date();
+                    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                    document.getElementById("prayerdate").innerHTML = days[d.getDay()] + ", " + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
+                </script>
               </div>
-              <div class="panel-body" style="text-align: center" id="praytime">
-          <div class="panel panel-info">
-            <div class="panel-heading" style="text-align: center">Latitude</div>
-            <div class="panel-body" style="text-align: center" id="lat"></div>
-          </div>
-
-          <div class="panel panel-info">
-            <div class="panel-heading" style="text-align: center">Longitude</div>
-            <div class="panel-body" style="text-align: center" id="lng"></div>
-          </div>
-
-          <div class="panel panel-info">
-            <div class="panel-heading" style="text-align: center">Distance</div>
-            <div class="panel-body" style="text-align: center" id="distance"></div>
-        </div>
-
-          <div class="panel panel-info">
-            <div class="panel-heading" style="text-align: center">Qibla Direction</div>
-            <div class="panel-body" style="text-align: center" id="direction"></div>
-        </div>
+              <div style="display:none" class="panel-body" style="text-align: center" id="praytime">
+                <div style="display:none" class="list-group">
+                  <p class="list-group-item">Subuh : <a class="no-link" id="subuh"></a> </p>
+                  <p class="list-group-item">Dzuhur : <a class="no-link" id="dzuhur"></a> </p>
+                  <p class="list-group-item">Ashar : <a class="no-link" id="ashar"></a> </p>
+                  <p class="list-group-item">Maghrib : <a class="no-link" id="maghrib"></a> </p>
+                  <p class="list-group-item">Isya : <a class="no-link" id="isya"></a> </p>
+                </div>
 
               </div>
             </div>
@@ -94,15 +87,50 @@
 
       </div> <!-- map row -->
 
+      <div class="row top5">
+        <div class="col-md-2 col-md-offset-2">
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">Latitude</div>
+            <div class="panel-body" style="text-align: center" id="lat"></div>
+          </div>
+        </div>
 
+        <div class="col-md-2">
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">Longitude</div>
+            <div class="panel-body" style="text-align: center" id="lng"></div>
+          </div>
+        </div>
 
+        <div class="col-md-2">
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">Distance</div>
+            <div class="panel-body" style="text-align: center" id="distance"></div>
+          </div>
+        </div>
 
+        <div class="col-md-2">
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">Qibla Direction</div>
+            <div class="panel-body" style="text-align: center" id="direction"></div>
+          </div>
+        </div>
+      </div> <!-- panel row -->
 
       <div class="row top5">
         <div class="col-md-8 col-md-offset-2">
           <div class="panel panel-danger">
             <div class="panel-heading" style="text-align: left">Notes:</div>
             <div class="panel-body" style="text-align: left" id="lat">
+              <h4>Prayer time</h4>
+              <ul>
+                <li>The Sun position is calculated using the simplest algorithm (~2 arcmin accuracy, ~ 10 seconds).</li>
+                <li>Subuh and Isya time is using the criteria from KEMENAG Indonesia (Ministry of Religious Affairs, Indonesia), i.e. when the Sun at 20&deg; and 18&deg; below the horizon.</li> 
+                <li>Dzuhur time is when the Sun at meredian + manual correction.</li>
+                <li>Ashar time is using criteria from majority of schools (including Shafi'i, Maliki, and Hanbali) i.e. when the length of any object's shadow equals the length of the object itself plus the length of that object's shadow at noon.</li>
+                <li>Maghrib time is when the Sun disk below the horizon. Correction of refraction included. For altitude correction, I assume the place is 500 m above the sea level.
+                <li>Manual correction added to the prayer time, i.e [2, 3, 2, 2, 2] minutes. This tuning is commonly used in practice, for 'safety' and historical reason, e.g. if your clock is not well calibrated.
+              </ul>
               <hr>
               <h4>Qibla finder</h4>
               <ul>
@@ -113,11 +141,32 @@
                 <li>Terms and Policies: <br>- by using this application you are agree that the Earth is NOT Flat ;)</li>
               </ul>
               <hr>
-              </div>
+              <h4>Contribute</h4>
+              <p>This application is still under developement. The algorithm does not include the adjustment for high/extreme latitude. There is a bug in Sun for Qibla finder. Many features also can be added. Please give your comment in the comment section below. If you want to collaborate, you can <a href="http://ridlow.wordpress.com/">contact us</a>.</p>
+            </div>
           </div>
         </div>
       </div>
 
+
+
+
+
+
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'qiblafinder'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
     </div> <!-- main container -->
 
@@ -134,6 +183,13 @@
     <script type="text/javascript" src="static/js/suncalc.js"></script>
     <!-- <script type="text/javascript" src="static/js/view.js"></script> -->
 
+
+    
+  <footer class="footer">
+    <div class="container">
+      <p class="text-muted">Currently v0.2 &nbsp; &middot; &nbsp; Written by <a href="http://ridlow.wordpress.com/">Ridlo W. Wibowo</a> &nbsp; &middot; &nbsp; Icon by Arif R. Abriyanto</p>
+    </div>
+  </footer>
 
   </body>
 </html>
