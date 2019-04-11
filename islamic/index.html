@@ -39,32 +39,36 @@
     <!-- navbar -->
 
     
-   <!-- <div class="container">
+   <div class="container">
       <div class="row topContent">
         <div class="col-md-2">
           <div class="row">
             <div class="panel panel-success">
               <div class="panel-heading" style="text-align: center">Prayers <div id="prayerdate"></div>
-                <script>
-                    var d = new Date();
-                    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-                    document.getElementById("prayerdate").innerHTML = days[d.getDay()] + ", " + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
-                </script>
               </div>
               <div class="panel-body" style="text-align: center" id="praytime">
-                <div class="list-group">
-                  <p class="list-group-item">Subuh : <a class="no-link" id="subuh"></a> </p>
-                  <p class="list-group-item">Dzuhur : <a class="no-link" id="dzuhur"></a> </p>
-                  <p class="list-group-item">Ashar : <a class="no-link" id="ashar"></a> </p>
-                  <p class="list-group-item">Maghrib : <a class="no-link" id="maghrib"></a> </p>
-                  <p class="list-group-item">Isya : <a class="no-link" id="isya"></a> </p>
-                </div>
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">Latitude</div>
+            <div class="panel-body" style="text-align: center" id="lat"></div>
+          </div>
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">Longitude</div>
+            <div class="panel-body" style="text-align: center" id="lng"></div>
+          </div>
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">Distance</div>
+            <div class="panel-body" style="text-align: center" id="distance"></div>
+          </div>
+          <div class="panel panel-info">
+            <div class="panel-heading" style="text-align: center">Qibla Direction</div>
+            <div class="panel-body" style="text-align: center" id="direction"></div>
+          </div>
 
               </div>
             </div>
           </div>
         </div>
--->
+
         <input id="pac-input" class="controls" type="text" placeholder="Search Place"> <!-- search box -->
 
         <div class="col-md-8">
@@ -88,30 +92,7 @@
 
       </div> <!-- map row -->
 
-      <!--<div class="row top5">-->
-        <div class="col-md-2">
-          <div class="row">
-            
-          <div class="panel panel-info">
-            <div class="panel-heading" style="text-align: center">Latitude</div>
-            <div class="panel-body" style="text-align: center" id="lat"></div>
-          </div>
-      <!--  </div>-->
-          <div class="panel panel-info">
-            <div class="panel-heading" style="text-align: center">Longitude</div>
-            <div class="panel-body" style="text-align: center" id="lng"></div>
-          </div>
-          <div class="panel panel-info">
-            <div class="panel-heading" style="text-align: center">Distance</div>
-            <div class="panel-body" style="text-align: center" id="distance"></div>
-          </div>
-          <div class="panel panel-info">
-            <div class="panel-heading" style="text-align: center">Qibla Direction</div>
-            <div class="panel-body" style="text-align: center" id="direction"></div>
-          </div>
-      
-          </div>
-  </div><!-- panel row -->
+
 
       <div class="row top5">
         <div class="col-md-8 col-md-offset-2">
