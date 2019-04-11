@@ -220,7 +220,6 @@ function initialize(){
             locMarker.setPosition(place.geometry.location); // get location of place
             qiblaMap.panTo(locMarker.getPosition()); // move to the center
             qiblaMap.setZoom(15);} // change zoom 
-        update();
     });
 
 
@@ -230,7 +229,7 @@ function initialize(){
     var fsControl = new fullScreenControl(fsControldiv, qiblaMap); 
     qiblaMap.controls[google.maps.ControlPosition.TOP_LEFT].push(fsControldiv);
 
-    
+    update();
 }
 
 // update function for position_changed event
