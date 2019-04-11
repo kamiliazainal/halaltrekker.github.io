@@ -55,7 +55,7 @@ function initialize(){
 
     // maps Options
     var mapOptions = {
-        zoom: 10,
+        zoom: 20,
         center: new google.maps.LatLng(pos),
         mapTypeId:google.maps.MapTypeId.ROADMAP,
         zoomControl: true,
@@ -143,7 +143,7 @@ function initialize(){
         for (var i=0, place; place=places[i]; i++){
             locMarker.setPosition(place.geometry.location); // get location of place
             qiblaMap.panTo(locMarker.getPosition()); // move to the center
-            qiblaMap.setZoom(15);} // change zoom 
+            qiblaMap.setZoom(20);} // change zoom 
     });
 
 
