@@ -38,20 +38,20 @@
     </nav> <!-- navbar -->
 
     
-    <div style="display:none" class="container">
-      <div style="display:none" class="row topContent">
-        <div style="display:none" class="col-md-2">
-          <div style="display:none" class="row">
-            <div style="display:none" class="panel panel-success">
-              <div style="display:none" class="panel-heading" style="text-align: center">Prayers <div id="prayerdate"></div>
+    <div class="container">
+      <div class="row topContent">
+        <div class="col-md-2">
+          <div class="row">
+            <div class="panel panel-success">
+              <div class="panel-heading" style="text-align: center">Prayers <div id="prayerdate"></div>
                 <script>
                     var d = new Date();
                     var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
                     document.getElementById("prayerdate").innerHTML = days[d.getDay()] + ", " + d.getDate() + "-" + (d.getMonth() + 1) + "-" + d.getFullYear();
                 </script>
               </div>
-              <div style="display:none" class="panel-body" style="text-align: center" id="praytime">
-                <div style="display:none" class="list-group">
+              <div class="panel-body" style="text-align: center" id="praytime">
+                <div class="list-group">
                   <p class="list-group-item">Subuh : <a class="no-link" id="subuh"></a> </p>
                   <p class="list-group-item">Dzuhur : <a class="no-link" id="dzuhur"></a> </p>
                   <p class="list-group-item">Ashar : <a class="no-link" id="ashar"></a> </p>
